@@ -6,6 +6,7 @@ import datetime
 from pandas import Series, DataFrame
 import tensorflow as tf
 from flask import Markup
+from method import *
 from method.FC_DNN import fc_dnn
 from method.Proposed_1 import proposed_1
 from Analysis import analysis
