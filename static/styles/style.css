@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+body{
+    font-family: 'Quicksand','Roboto','arial','sans-serif';
+    padding: 0;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+.nav{
+    margin: 0;
+    /*background-color: aquamarine;*/
+    background-color: #CFECEC;
+    padding-top: 5px;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    width: 100%;
+}
+
+nav > a {
+    color: black;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+nav > a:hover, nav > h2:hover{
+    color: #fff;
+}
+.ma1,.ma2,.company{
+    padding:10px;
+}
+
+.studies{
+    display: inline-flex;
+}
+.params{
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+}
+
+h2,h3,h4{
+    text-align: center !important;
+}
+.studiesh3{
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.container{
+    display: flex !important;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.col-md-4{
+    padding: 10px;
+}
+
+.margin-auto{
+    margin: auto;
+}
+
+.left{
+    text-align: left !important;
+}
+
+
+
+input{
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    padding-left: 5px;
+}
+
+
+.button{
+    width: 50%;
+    margin-top: 10px;
+    background-color: aquamarine;
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.analysis{
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+}
+
+table{
+    background-color: #f0f0f0;
+    color: #000;
+    border: 1;
+    padding: 10px
+}
+
+td{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.data-form{
+    /* width: 200px; */
+    margin-top: 6%;
+}
+
+#multi-form,#sectTwo{
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+#multi-form > input{
+    padding: 5px;
+    margin: 5px;
+}
+/* .figure{
+    width: 738px;
+    height: 387px;
+} */
+
+.menu{
+    /* display: inline-flex; */
+    float: right;
+    display: inline-grid !important;  
+    /* background-color: #f4f4f4; */
+    /* color: #fff; */
+    font-size: 18px;
+    float: right;
+    z-index: 0;
+    position: absolute;
+    left: 0px;
+    text-align: center;
+}
+.sub{
+    display: inline-grid !important;
+    /* background-color: #f4f4f4; */
+    color: #000;
+}
+
+.menu > a, .sub > a{
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.menu:hover{
+    background-color: #f4f4f4;
+    color: #000 !important;
+}
+
+.menu > a:hover{
+    color: #000 !important;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+
+.center{
+    text-align: center;
+}
+
+.plot{
+    /* display: flex; */
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.plot img{
+    width: 500px;
+}
+
+figure.row{
+    display: flex;
+    flex-direction: column;
+}
+
+#buttonArea{
+    display: flex;
+    margin: auto;
+}
+
+.center-figure{
+    /* margin-left: -130px;
+    margin-right: 330px; */
+    width: 680px !important;
+}
+
+form.data-form{
+    width: 200px;
+}
+
+
+.row1{
+    margin-left: 14px;
+}
+
+.Forecast{
+    white-space: nowrap;
+}
+
+table.dataframe{
+    background-color: #f0f0f0;
+    color: #000;
+    border: 0 !important;
+    padding: 20px;
+    
+}
+
+
+table.dataframe > thead,th,tbody,tr,td{
+    border: 0 !important;
+}
+
+.container-right{
+    margin-left: 22%;
+}
+
+
+
+@media screen and (max-width: 1300px){
+    .container{
+        overflow: auto;
+        margin-left: 0%;
+        margin-right: 0%;
+        /* display: table-column; */
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+}
+
+div.col-md-4{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+div.data-form{
+    /* margin-left: 5px; */
+}
+
+form.data-form, form.data-form > .button{
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data-form > .button{
+    display: block;
+}
+
+
+input.form-control {
+    width: 100%;
+} 
+
+div.center-figure{
+    /* display: flex;
+    flex-direction: column; */
+    margin: unset !important;
+    max-width: 100%;
+}
+
+img.figure{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+table.dataframe{
+    width: 100%;
+}
+
+
+table.dataframe > thead > tr > th {
+    text-align: center !important;
+}
+
+
+}

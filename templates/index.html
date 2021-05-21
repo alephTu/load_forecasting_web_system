@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}hey{% endblock %}
+
+{% block content %}
+<h1 class="center">HomePage</h1>
+
+<div class="container">
+    <div class="center">
+        <h2 class="center">简介</h2>
+        <h3 class="left">本系统由重庆市大学生创新创业训练计划"基于机器学习的负荷预测系统研发"项目组开发.
+            该项目旨在使用机器学习技术实现高精度的日前负荷预测, 为市场调度和市场定价提供可靠依据, 同时也为城市电力设备检修计划的制定提供支持.
+            目前本系统中内置有如下的预测算法：
+            <br/> (a) 多元线性回归：MLR;
+            <br/> (b) 梯度提升算法：XGBoost, LightGBM;
+            <br/> (c) 集成学习算法：Stacking;
+            <br/> (d) 深度学习：FC_DNN, LSTM, RNN, TCN, Seq2Seq, Attention_Seq2Seq;
+            <br/> (e) 本项目提出的算法：proposed_1, proposed_2.
+            <br>
+            <br/> 由于气象信息对短期负荷预测的精度有着重要影响, 因此, 本系统还提供分析模块用来分析负荷曲线与气象条件的关系.
+            <div style="color: #B22222"> Note: 本系统的web界面和算法的开发主要基于Python(Pycharm)完成, 使用的Package包括: Numpy, Pandas, Pandas_stubs,
+            Matplotlib, Seaborn, Tqdm, Dtw, Scikit_learn, Tensorflow, Flask.</div>
+        </h3>
+
+            <br>
+            <h2 class="center">数据流</h2>
+            <h3 class="left">
+            用户在"负荷预测"界面输入待预测的城市代码和日期同时选择预测算法, 服务器将通过请求指令获取Web界面输入的参数,
+                并根据输入的城市代码和预测日期连接到到对应的历史负荷和历史气象数据库中, 通过PyMySql对历史数据进行筛选后传递给服务器并输入到对应的机器学习算法中进行建模并预测. 预测结果将以图片和统计量的形式反馈回UI界面.
+                <br>
+                <br/>类似地, 用户在"分析"界面输入待分析的城市代码并选择时间段, 分析完成后结果将以图片的形式返回给UI界面.
+                <div style="color: #B22222"> Note: 由于保密协议本项目所用数据并未上传到云端, 如想使用本系统对外源数据进行预测需要满足以下数据格式：</div>
+                <div style="color: 	#4682B4">## city_code = "city_new";</div>
+                <div style="color: 	#4682B4">## 文件格式: .csv; 所需特征: 负荷, 温度, 相对湿度, 风速, 降雨量; 采样频率: 15min(96点, 可插值得到);</div>
+                <div style="color: 	#4682B4">## 特征维度 N×97 (第一列为日期:"date", 后续为96点的该特征值).</div>
+        </h3>
+        <h2 class="center">使用方法:</h2>
+        <h3 class="left">
+            1. 负荷预测<br>
+            - 输入待预测的城市编号 # eg: P, C1 <br>
+            - 输入待预测的日期 # format: XXXX-XX-XX, eg: 2018-01-10 <br>
+            - 输入预测算法 # eg: FC_DNN <br>
+            - 点击“预测”按钮进行预测<br>
+            - 等待预测结果返回<br>
+            <br>
+            2. 分析<br>
+            - 输入待分析的城市编号 # eg: P, C1 <br>
+            - 输入分析的起始日期 # format: XXXX-XX-XX, eg: 2018-01-01 <br>
+            - 输入分析的截至日期 # format: XXXX-XX-XX, eg: 2018-01-31 <br>
+            - 点击“分析”按钮进行分析<br>
+            - 等待分析结果返回<br>
+            <div style="color: #B22222">Note: 本系统内置的算法均为实时建模计算，这可能需要花费一点时间...</div>
+        </h3>
+    </div>
+</div>
+<img src="{{ url_for('static', filename = 'forecasting_sample.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+{% endblock %}
+

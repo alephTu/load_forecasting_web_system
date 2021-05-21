@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1 class="center">负荷气象分析</h1>
+<h3 class="center">分析指定时间内负荷和气象的相关性</h3>
+{#     <div style="color: coral"> Note:  </div>#}
+
+<div class="container container-right">
+
+<div class="data-form">
+
+    <form action="/multi" method="POST" id="multi-form" class="data-form" style="">
+
+        <label>城市代码</label>
+
+        <input class="form-control" type="text" id="city_code" placeholder="C1" value="{{ city_code }}" name="city_code">
+
+        <label>起始日期</label>
+
+        <input class="form-control" type="text" id="from_date" placeholder="2018-01-01" value="{{ from_date }}"
+            name="from_date">
+
+        <label>终止日期</label>
+
+        <input class="form-control" type="text" id="to_date" placeholder="2018-01-31" value="{{ to_date }}" name="to_date">
+
+        <button type="submit" class="button" style="width: 25% !important; margin: auto; margin-top: 10px;">分析</button>
+    </form>
+
+</div>
+
+<figure class="row">
+
+        <h2>负荷气象相关性热力图</h2>
+        <img src="{{ url_for('static', filename = 'corr.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+</figure>
+
+</div>
+
+    <h2 class="center">时间滞后互相关</h2>
+
+    <h3>负荷 Vs. 温度</h3>
+    <img src="{{ url_for('static', filename = 'corr_Tep.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+    <h3>负荷 Vs. 相对湿度</h3>
+    <img src="{{ url_for('static', filename = 'corr_Hum.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+    <h3>负荷 Vs. 风速</h3>
+    <img src="{{ url_for('static', filename = 'corr_Wind.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+    <h3>负荷 Vs. 降雨量</h3>
+    <img src="{{ url_for('static', filename = 'corr_Rain.png') }}" alt="" class="figure margin-auto" style="display: block;">
+
+
+</section>
+<script src="{{ url_for('static', filename = 'form.js') }}"></script>
+<script src="{{ url_for('static', filename = 'autocaps.js') }}"></script>
+{% endblock %}

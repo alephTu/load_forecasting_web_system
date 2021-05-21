@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+<title>Forecast</title>
+{% block content %}
+
+
+
+
+    <div class="container">
+
+        <div class="col-md-4">
+            <h2 class="center">输入</h2>
+            <div class="data-form">
+                <form action="/prediction" method="POST" class="data-form">
+                    <label>城市代码</label>
+
+                    <input class="form-control" type="text" id="city_code" placeholder="C1" value="{{ city_code }}"
+                        name="city_code">
+
+                    <label>预测日期</label>
+
+                    <input class="form-control" type="text" id="date" placeholder="2018-01-10" value="{{ date }}"
+                        name="date">
+                    <br>
+                    <label>算法</label>
+
+                    <input class="form-control" type="text" id="method" placeholder="FC_DNN" value="{{ method }}"
+                        name="method">
+                    <button type="submit" class="button">预测</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 center-figure">
+
+           
+                <h2 class="center">预测结果</h2>
+
+                {% if img %}
+                <img src="{{url_for('static', filename = ''+img)}}" alt="" class="figure">
+               {% else %}
+               <img src="{{ url_for('static', filename = 'predict_test.png') }}" alt="" class="figure">
+               {% endif %}
+        
+        </div>
+
+        <div class="col-md-4">
+            <div class="analysis">
+                <h2>预测结果统计</h2>
+                <table id="analysisOne">
+                    <tr>
+                        <td>城市:</td>
+                        <td>{{ city_code }}</td>
+                    </tr>
+                    <tr>
+                        <td>预测日期:</td>
+                        <td>{{ date }}</td>
+                    </tr>
+                    <tr>
+                        <td>算法:</td>
+                        <td>{{ method }}</td>
+                    </tr>
+                    <tr>
+                         <td>运算耗时 (s):</td>
+                        <td>{{ cal_time }}</td>
+                    </tr>
+                    <tr>
+                        <td>MAPE (%):</td>
+                        <td>{{ mape }}</td>
+                    </tr>
+                    <tr>
+                        <td>最高负荷 (MW):</td>
+                        <td style="color: red">{{ max_load }}</td>
+                    </tr>
+                    <tr>
+                        <td>出现时间 (Military):</td>
+                        <td style="color: red">{{ max_time }}</td>
+                    </tr>
+                    <tr>
+                        <td>最低负荷 (MW):</td>
+                        <td style="color: limegreen">{{ min_load }}</td>
+                    </tr>
+                    <tr>
+                        <td>出现时间 (Military):</td>
+                        <td style="color: limegreen">{{ min_time }}</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="col-md-4">
+    <h2 class="left">日期和气象特征</h2>
+    <div class="Forecast">
+        {{ value }}
+    </div>
+</div>
+
+<div class="col-md-4">
+    <h2 class="center">日前负荷与预测负荷</h2>
+
+    {% if img %}
+        <img src="{{url_for('static', filename = ''+img)}}" alt="" class="figure">
+    {% else %}
+        <img src="{{ url_for('static', filename = 'input_output.png') }}" alt="" class="figure">
+    {% endif %}
+
+</div>
+
+</div>
+
+
+
+</body>
+<script src="{{ url_for('static', filename = 'autocaps.js') }}"></script>
+
+<script src="{{ url_for('static', filename = 'logic.js') }}"></script>
+
+<script src="{{ url_for('static', filename = 'form.js') }}"></script>
+
+
+</html>
+{% endblock %}

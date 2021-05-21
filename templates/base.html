@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <!-- CSS only -->
+
+<!-- JS, Popper.js, and jQuery -->
+
+</head>
+
+<body>
+    <nav class="nav">
+        <h2 class="center">基于机器学习的负荷预测</h2>
+        <a href="/">主页</a> <a href="/prediction">负荷预测</a><a href="/multi">分析</a>
+    </nav>
+
+
+
+    {% block content %}
+    {% endblock %} 
+
+</body>
+</html>
+
+    
